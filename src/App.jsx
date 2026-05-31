@@ -1,10 +1,10 @@
-import { Navbar } from "./components"
+import { LandingPage } from "./sections"
+
 
 const App = () => {
     return (
-        <div className="font-poppins">
-            <Navbar />
-            <div className="w-full h-0.5 bg-[#E4E7EB]" />
+        <div>
+            <LandingPage />
         </div>
     )
 }
