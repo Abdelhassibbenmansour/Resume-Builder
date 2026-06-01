@@ -3,7 +3,7 @@ import { Cv } from "../images"
 const Intro = () => {
     return (
         <div className="max-sm:py-20 py-6  max-sm:mb-0 mb-14">
-            <div className="container flex max-sm:flex-col max-sm:space-y-20 items-center justify-between">
+            <div className="container flex max-lg:flex-col max-lg:space-y-20 items-center justify-between">
                 <div className="max-w-[527px]">
                     <div className="text-[#000112] text-6xl max-sm:text-4xl font-bold mb-6">
                         <span className="text-[#EB5757] text-8xl max-sm:text-6xl" >Create</span><br />a career in tech.

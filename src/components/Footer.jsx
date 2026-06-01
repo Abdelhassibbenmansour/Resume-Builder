@@ -4,7 +4,7 @@ import { footerLinks } from "../data/data"
 const Footer = () => {
     return (
         <div className="container">
-            <div className="flex justify-between max-sm:flex-col">
+            <div className="flex justify-between max-md:flex-col max-md:space-y-16">
                 <div className="max-sm:mb-16">
                     <div className="max-sm:mb-16 mb-24 cursor-pointer max-sm:w-[150px] max-sm:h-[50px] mx-auto">
                         <img src={Logo} alt="Logo" />
@@ -18,7 +18,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex justify-between ">
+                    <div className="flex justify-between md:space-x-20  ">
                         {footerLinks.map((item, index) => {
                             return (
                                 <div key={index} className="flex flex-col">

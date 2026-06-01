@@ -13,7 +13,7 @@ const Features = () => {
     return (
         <div className="container">
             <div className="title text-center mb-8">Feature</div>
-            <div className="flex justify-between items-center md:space-x-38 max-sm:flex-col">
+            <div className="flex justify-between items-center md:space-x-38 max-lg:flex-col">
                 <div className="flex flex-col justify-between">
                     <Description
                         title="Templates"
@@ -35,7 +35,7 @@ const Features = () => {
                         title="Free Cover Letter"
                         text="With each of our professionally designed resume templates, you'll receive a FREE cover letter template that's perfectly matched to your chosen resume style. Our cover letter templates are designed to help you:"
                     />
-                    <div className="my-4 w-full max-w-[410px] max-sm:hidden">
+                    <div className="my-4 w-full max-w-[410px] max-md:hidden">
                         <img src={LeftArrow} alt="Left Arrow" />
                     </div>
                 </div>
