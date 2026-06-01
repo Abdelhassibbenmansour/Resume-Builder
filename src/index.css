@@ -12,9 +12,9 @@
 }
 
 .button {
-    @apply h-[56px] cursor-pointer bg-[#EB5757] text-white text-lg rounded-xl flex justify-center items-center hover:text-[#EB5757] transition duration-500 hover:bg-white hover:border hover:border-[#EB5757];
+    @apply h-[56px] cursor-pointer bg-[#EB5757] text-white text-lg max-sm:text-sm rounded-xl flex justify-center items-center hover:text-[#EB5757] transition duration-500 hover:bg-white hover:border hover:border-[#EB5757];
 }
 
 .title {
-    @apply text-5xl text-[#EB5757];
+    @apply text-5xl max-sm:text-4xl text-[#EB5757];
 }
