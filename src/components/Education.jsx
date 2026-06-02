@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Education = () => {
     return (
-        <form action="" className="py-2">
+        <form action="" className="py-2 w-full md:w-auto max-w-full">
             <div className="label">School Name</div>
             <input type="text" placeholder="e.g University of Lagos" className="input" />
             <div className="label">School Location</div>

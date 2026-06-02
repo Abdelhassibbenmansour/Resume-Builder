@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const ContactInformation = () => {
     return (
-        <form action="" className="py-2">
+        <form action="" className="py-2 w-full md:w-auto max-w-full">
             <div className="label">Phone Number</div>
             <input type="email" placeholder="05../06../07.." className="input" />
             <div className="label">Linkedin Profile Link</div>

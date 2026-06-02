@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const PersonalInfo = () => {
     return (
-        <form action="" className="py-2">
+        <form action="" className="py-2 w-full md:w-auto max-w-full">
             <div className="label">Full Name</div>
             <input type="text" placeholder="John Doe" className="input" />
             <div className="label" >Email Address</div>
@@ -11,12 +11,12 @@ const PersonalInfo = () => {
             <input type="text" placeholder="E.G Software Engineer" className="input" />
             <div className="label">Address</div>
             <input type="text" placeholder="NG 1112 oreville " className="input" />
-            <div className="flex space-x-1">
-                <div>
+            <div className="flex flex-col md:flex-row md:space-x-1">
+                <div className="w-full md:w-auto">
                     <div className="label">City</div>
                     <input type="text" placeholder="Houston" className="min-input" />
                 </div>
-                <div>
+                <div className="w-full md:w-auto">
                     <div className="label">State</div>
                     <input type="text" placeholder="Texas" className="min-input" />
                 </div>
