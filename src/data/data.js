@@ -1,10 +1,3 @@
-const navLinks = [
-    { link: "Home" },
-    { link: "Template" },
-    { link: "Jobs" },
-    { link: "About" }
-];
-
 const footerLinks = [
     {
         title: "Our story",
@@ -31,4 +24,4 @@ const footerLinks = [
     },
 ];
 
-export { footerLinks, navLinks };
+export { footerLinks };
