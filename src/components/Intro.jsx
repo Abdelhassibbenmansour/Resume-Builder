@@ -11,7 +11,7 @@ const Intro = () => {
                     <p className="text-[#404653] text-xl max-sm:text-sm mb-10">The template includes carefully structured sections for personal information, summary or objective, work experience, education, skills, projects, certifications, and more. You can easily customize these sections to fit your unique background.</p>
                     <div className="button w-[334px] max-sm:w-[223px] font-nunito ">Create Resume for free</div>
                 </div>
-                <div className="w-[574px] h-[750px] max-sm:w-[354px] max-sm:h-[463px] overflow-hidden">
+                <div className="w-[574px] h-[750px] max-sm:w-[300px] max-sm:h-[463px] overflow-hidden">
                     <img src={Cv} alt="Cv image" className="w-full" />
                 </div>
             </div>

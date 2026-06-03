@@ -11,3 +11,4 @@ export { default as Education } from "./Education";
 export { default as Experience } from "./Experience";
 export { default as PersonalInfo } from "./PersonalInfo";
 export { default as TechnicalSkills } from "./TechnicalSkills";
+export { default as Congratulations } from "./Congratulations";

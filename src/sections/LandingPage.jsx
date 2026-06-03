@@ -9,7 +9,7 @@ const LandingPage = () => {
             <Features />
             <Join />
             <About />
-            <div className="w-full h-0.5 bg-[#E4E7EB] mb-16" />
+            <div className="w-full h-0.5 bg-[#E4E7EB] mb-4 md:mb-16" />
             <Footer />
         </div>
     )

@@ -51,7 +51,7 @@ const resumeLinks = [
 ];
 
 const Resume = () => {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(window.innerWidth >= 1024);
     const [page, setPage] = useState("/PersonalInfo")
     return (
         <div className="min-h-screen flex flex-col">

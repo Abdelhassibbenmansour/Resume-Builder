@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const Certification = () => {
     return (
@@ -10,7 +11,9 @@ const Certification = () => {
             <input type="text" placeholder="e.g Certificate of Engineering" className="input" />
             <div className="label">Certification #4</div>
             <input type="text" placeholder="e.g Certificate of Engineering" className="input" />
-            <button type="button" className="form-button">Next</button>
+            <Link to="/Congratulations">
+                <button type="button" className="form-button">Submit</button>
+            </Link>
         </form>
     )
 }

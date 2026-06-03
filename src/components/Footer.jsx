@@ -6,13 +6,13 @@ const Footer = () => {
         <div className="container">
             <div className="flex justify-between max-md:flex-col max-md:space-y-16">
                 <div className="max-sm:mb-16">
-                    <div className="max-sm:mb-16 mb-24 cursor-pointer max-sm:w-[150px] max-sm:h-[50px] mx-auto">
+                    <div className="max-sm:mb-10 mb-24 cursor-pointer max-sm:w-[150px] max-sm:h-[50px] mx-auto">
                         <img src={Logo} alt="Logo" />
                     </div>
                     <div>
                         <div className="text-lg max-sm:text-base text-[#000112] mb-6">Updates right to your Inbox</div>
-                        <div className="flex space-x-5">
-                            <input type="text" placeholder="Email Address" className="text-base text-[#404653] w-[320px] max-sm:w-[236px] h-[54px] pl-4 border border-[#CCCCCC] rounded-xl outline-none focus:border-[#EB5757]" />
+                        <div className="flex space-x-5 items-center">
+                            <input type="text" placeholder="Email Address" className="text-base text-[#404653] w-[320px] max-sm:w-[200px] h-[54px] pl-4 border border-[#CCCCCC] rounded-xl outline-none focus:border-[#EB5757]" />
                             <button type="button" className="button w-[130px] max-sm:w-[100px] h-[54px]">Subscribe</button>
                         </div>
                     </div>
