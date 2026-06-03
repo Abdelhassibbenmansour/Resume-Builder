@@ -16,16 +16,17 @@ const Register = () => {
             >
                 <BsArrowLeft className="text-2xl text-gray-800" />
             </button>
-            <div className="flex border-b border-gray-200 mb-8 mt-12 w-full">
-                <button className="flex-1 pb-4 text-center font-bold text-[13px] tracking-wider text-[#1E1E1E] border-b-2 border-[#EB5757]">
+            <div className="flex border-b border-gray-200 mb-8 mt-12 w-full relative">
+                <button className="flex-1 pb-4 text-center font-bold text-[13px] tracking-wider text-[#1E1E1E]">
                     REGISTER
                 </button>
-                <button
+                <button 
                     onClick={() => navigate('/login')}
-                    className="flex-1 pb-4 text-center font-bold text-[13px] tracking-wider text-[#1E1E1E]/50 border-b-2 border-transparent hover:text-[#1E1E1E] transition-colors"
+                    className="flex-1 pb-4 text-center font-bold text-[13px] tracking-wider text-[#1E1E1E]/50 hover:text-[#1E1E1E] transition-colors"
                 >
                     LOG IN
                 </button>
+                <div className="absolute bottom-[-1px] left-0 w-1/2 h-[2px] bg-[#EB5757] animate-[slideFromRight_0.3s_ease-out]" />
             </div>
             <form className="w-full" onSubmit={(e) => e.preventDefault()}>
                 <div className="label text-sm mb-2">Email address</div>

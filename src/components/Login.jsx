@@ -15,16 +15,17 @@ const Login = () => {
                 <BsArrowLeft className="text-2xl text-gray-800" />
             </button>
 
-            <div className="flex border-b border-gray-200 mb-8 mt-12 w-full">
-                <button
+            <div className="flex border-b border-gray-200 mb-8 mt-12 w-full relative">
+                <button 
                     onClick={() => navigate('/register')}
-                    className="flex-1 pb-4 text-center font-bold text-[13px] tracking-wider text-[#1E1E1E]/50 border-b-2 border-transparent hover:text-[#1E1E1E] transition-colors"
+                    className="flex-1 pb-4 text-center font-bold text-[13px] tracking-wider text-[#1E1E1E]/50 hover:text-[#1E1E1E] transition-colors"
                 >
                     REGISTER
                 </button>
-                <button className="flex-1 pb-4 text-center font-bold text-[13px] tracking-wider text-[#1E1E1E] border-b-2 border-[#EB5757]">
+                <button className="flex-1 pb-4 text-center font-bold text-[13px] tracking-wider text-[#1E1E1E]">
                     LOG IN
                 </button>
+                <div className="absolute bottom-[-1px] left-1/2 w-1/2 h-[2px] bg-[#EB5757] animate-[slideFromLeft_0.3s_ease-out]" />
             </div>
 
             <form className="w-full" onSubmit={(e) => e.preventDefault()}>
