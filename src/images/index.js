@@ -9,6 +9,7 @@ import Facebook from "./facebook.png"
 import Twitter from "./twitter.png"
 import Instagram from "./instagram.png"
 import Linkedin from "./linkedin.png"
+import Auth from "./auth.png"
 
 export {
     Logo,
@@ -22,4 +23,5 @@ export {
     Twitter,
     Instagram,
     Linkedin,
+    Auth,
 };

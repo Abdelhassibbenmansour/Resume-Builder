@@ -12,3 +12,8 @@ export { default as Experience } from "./Experience";
 export { default as PersonalInfo } from "./PersonalInfo";
 export { default as TechnicalSkills } from "./TechnicalSkills";
 export { default as Congratulations } from "./Congratulations";
+export { default as Register } from "./Register";
+export { default as Login } from "./Login";
+export { default as ForgotPassword } from "./ForgotPassword";
+export { default as OTP } from "./OTP";
+export { default as CreatePassword } from "./CreatePassword";
