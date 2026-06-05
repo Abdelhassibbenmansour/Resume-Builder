@@ -1,5 +1,5 @@
 import { Link, Routes, Route, Navigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ResumeNavbar } from "../components"
 import { GoPerson } from "react-icons/go";
 import { LuUserPen } from "react-icons/lu";
@@ -12,6 +12,7 @@ import clsx from "clsx";
 import { Certification, ContactInformation, Education, Experience, PersonalInfo, TechnicalSkills } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { setPage } from "../redux/links";
+import { useLocation } from "react-router-dom";
 
 const resumeLinks = [
     {
@@ -54,9 +55,21 @@ const resumeLinks = [
 
 const Resume = () => {
     const [show, setShow] = useState(window.innerWidth >= 1024);
-    // const [page, setPage] = useState("PersonalInfo");
     const dispatch = useDispatch();
     const page = useSelector((s) => s.page.page);
+    const location = useLocation();
+
+    useEffect(() => {
+        switch (location.pathname) {
+            case "/Resume/PersonalInfo": dispatch(setPage('PersonalInfo')); break;
+            case "/resume/Experience": dispatch(setPage("Experience")); break;
+            case "/resume/TechnicalSkills": dispatch(setPage("TechnicalSkills")); break;
+            case "/resume/Education": dispatch(setPage("Education")); break;
+            case "/resume/ContactInformation": dispatch(setPage("ContactInformation")); break;
+            case "/resume/Certification": dispatch(setPage("Certification")); break;
+            default: dispatch(setPage('PersonalInfo')); break;
+        }
+    }, [])
     return (
         <div className="min-h-screen flex flex-col">
             <ResumeNavbar />
