@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import { Cv2 } from '../images';
 import { BsArrowLeft } from 'react-icons/bs';
 import { FiDownload } from 'react-icons/fi';
-
 import ResumeNavbar from './ResumeNavbar';
+import ResumePreview from './ResumePreview';
+import { useDispatch } from 'react-redux';
+import { setPage } from '../redux/links';
 
 const Congratulations = () => {
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     return (
         <div className="min-h-screen bg-[#E4E7EB] font-['Nunito']">
             <ResumeNavbar />
@@ -16,7 +17,7 @@ const Congratulations = () => {
             <div className="container mt-4 md:mt-8 relative pt-10 md:pt-12">
                 {/* Back Button */}
                 <button
-                    onClick={() => navigate('/Certification')}
+                    onClick={() => { navigate('/Resume'), dispatch(setPage('PersonalInfo')) }}
                     className="absolute top-0 left-4 md:left-2 p-2 cursor-pointer hover:bg-white active:bg-white rounded-full transition-colors inline-flex"
                     aria-label="Go back to Certification"
                 >
@@ -45,15 +46,7 @@ const Congratulations = () => {
                     </div>
 
                     {/* Right Column (Preview) */}
-                    <div className="w-full lg:w-1/2 flex flex-col md:pr-10 lg:pr-20">
-                        <div className="flex justify-between items-center mb-4 text-sm px-2">
-                            <span className="font-semibold text-[#EB5757]">Preview</span>
-                            <span className="cursor-pointer text-blue-500 font-medium hover:underline">Edit</span>
-                        </div>
-                        <div className="w-full bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-sm overflow-hidden">
-                            <img src={Cv2} alt="Resume Preview" className="w-full h-auto object-contain" />
-                        </div>
-                    </div>
+                    <ResumePreview />
 
                 </div>
             </div>

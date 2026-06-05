@@ -1,4 +1,4 @@
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { ResumeNavbar } from "../components"
 import { GoPerson } from "react-icons/go";
@@ -7,52 +7,56 @@ import { LiaChartBarSolid } from "react-icons/lia";
 import { RiGraduationCapLine } from "react-icons/ri";
 import { PiUserList, PiCertificateThin } from "react-icons/pi";
 import { BiMenuAltLeft, BiMenu } from "react-icons/bi";
-import { Cv2 } from "../images";
+import { ResumePreview } from "../components";
 import clsx from "clsx";
 import { Certification, ContactInformation, Education, Experience, PersonalInfo, TechnicalSkills } from "../components";
+import { useSelector, useDispatch } from "react-redux";
+import { setPage } from "../redux/links";
 
 const resumeLinks = [
     {
         title: "Personal Information",
         icon: <GoPerson />,
-        destination: "/PersonalInfo",
+        destination: "PersonalInfo",
         element: <PersonalInfo />,
     },
     {
         title: "Experience",
         icon: <LuUserPen />,
-        destination: "/Experience",
+        destination: "Experience",
         element: <Experience />,
     },
     {
         title: "Technical Skills",
         icon: <LiaChartBarSolid />,
-        destination: "/TechnicalSkills",
+        destination: "TechnicalSkills",
         element: <TechnicalSkills />,
     },
     {
         title: "Education",
         icon: <RiGraduationCapLine />,
-        destination: "/Education",
+        destination: "Education",
         element: <Education />,
     },
     {
         title: "Contact Information",
         icon: <PiUserList />,
-        destination: "/ContactInformation",
+        destination: "ContactInformation",
         element: <ContactInformation />,
     },
     {
         title: "Certification",
         icon: <PiCertificateThin />,
-        destination: "/Certification",
+        destination: "Certification",
         element: <Certification />,
     },
 ];
 
 const Resume = () => {
     const [show, setShow] = useState(window.innerWidth >= 1024);
-    const [page, setPage] = useState("/PersonalInfo")
+    // const [page, setPage] = useState("PersonalInfo");
+    const dispatch = useDispatch();
+    const page = useSelector((s) => s.page.page);
     return (
         <div className="min-h-screen flex flex-col">
             <ResumeNavbar />
@@ -64,8 +68,8 @@ const Resume = () => {
                     <div className="flex flex-col space-y-4">
                         {resumeLinks.map((item, index) => {
                             return (
-                                <Link key={index} to={item.destination} onClick={() => {
-                                    setPage(item.destination);
+                                <Link key={index} to={`/resume/${item.destination}`} onClick={() => {
+                                    dispatch(setPage(item.destination));
                                     if (window.innerWidth < 768) {
                                         setShow(false);
                                     }
@@ -83,14 +87,15 @@ const Resume = () => {
                 </div>
                 <div className={clsx("flex flex-1 px-4 md:px-8 pt-2 pb-10 bg-[#E4E7EB] ml-[80px] md:ml-0 overflow-y-auto w-full", show ? "space-x-4 md:space-x-10" : "space-x-4 md:space-x-30")} >
                     <Routes>
+                        <Route index element={<Navigate to="PersonalInfo" replace />} />
                         {resumeLinks.map((item, index) => {
                             return (
                                 <Route key={index} path={item.destination} element={item.element} />
                             )
                         })}
                     </Routes>
-                    <div className="max-w-[690px] h-[820px] max-md:hidden">
-                        <img src={Cv2} alt="Resume" className="w-full h-full" />
+                    <div className="max-w-[690px] min-h-[820px] max-md:hidden flex-shrink-0">
+                        <ResumePreview />
                     </div>
                 </div>
             </div>

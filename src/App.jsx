@@ -3,6 +3,7 @@ import { Congratulations, Register, Login, ForgotPassword, OTP, CreatePassword }
 import { Routes, Route } from "react-router-dom"
 
 
+
 const App = () => {
     return (
         <div>
@@ -14,7 +15,7 @@ const App = () => {
                 <Route path="/otp" element={<OTP />} />
                 <Route path="/create-password" element={<CreatePassword />} />
                 <Route path="/Congratulations" element={<Congratulations />} />
-                <Route path="/*" element={<Resume />} />
+                <Route path="/resume/*" element={<Resume />} />
             </Routes>
         </div>
     )
