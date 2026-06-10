@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
     setCompany,
-    setEmployer,
     setRole,
     setWorkAddress,
     setStartDate,
@@ -12,7 +11,7 @@ import { setPage } from "../redux/links";
 
 const Experience = () => {
     const dispatch = useDispatch();
-    const { company, employer, role, workAddress, startDate, endDate } = useSelector((s) => s.infos);
+    const { company, role, workAddress, startDate, endDate } = useSelector((s) => s.infos);
     return (
         <form action="" className="py-2 w-full md:w-auto max-w-full">
             <div className="label">Company</div>
@@ -23,14 +22,7 @@ const Experience = () => {
                 value={company}
                 onChange={(e) => dispatch(setCompany(e.target.value))}
             />
-            <div className="label">Employer</div>
-            <input
-                type="text"
-                placeholder="Employer's name"
-                className="input"
-                value={employer}
-                onChange={(e) => dispatch(setEmployer(e.target.value))}
-            />
+
             <div className="label">Role</div>
             <input
                 type="text"
