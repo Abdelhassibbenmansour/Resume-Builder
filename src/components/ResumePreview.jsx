@@ -24,9 +24,9 @@ const Field = ({ label, value }) => {
 const ResumePreview = () => {
     const {
         fullName, emailAddress, profession, address, city, state,
-        company, employer, role, workAddress, startDate, endDate,
+        company, role, workAddress, startDate, endDate,
         skill,
-        schoolName, schoolLocation, degree, studyField, graduationMonth, graduationYear,
+        schoolName, degree, studyField, graduationMonth, graduationYear,
         phoneNumber, linkedinLink, twitterLink, githubLink, portfolioLink,
         certifications,
     } = useSelector((s) => s.infos);
@@ -45,7 +45,6 @@ const ResumePreview = () => {
 
             <Section title="Experience">
                 <Field label="Company" value={company} />
-                <Field label="Employer" value={employer} />
                 <Field label="Role" value={role} />
                 <Field label="Work Address" value={workAddress} />
                 <Field label="Start Date" value={startDate} />
@@ -58,7 +57,6 @@ const ResumePreview = () => {
 
             <Section title="Education">
                 <Field label="School Name" value={schoolName} />
-                <Field label="Location" value={schoolLocation} />
                 <Field label="Degree" value={degree} />
                 <Field label="Field of Study" value={studyField} />
                 <Field label="Graduation Month" value={graduationMonth} />

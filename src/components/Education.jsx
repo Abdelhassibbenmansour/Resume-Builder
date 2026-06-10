@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
     setSchoolName,
-    setSchoolLocation,
     setDegree,
     setStudyField,
     setGraduationMonth,
@@ -20,7 +19,7 @@ const years = Array.from({ length: 50 }, (_, i) => String(currentYear - i));
 
 const Education = () => {
     const dispatch = useDispatch();
-    const { schoolName, schoolLocation, degree, studyField, graduationMonth, graduationYear } =
+    const { schoolName, degree, studyField, graduationMonth, graduationYear } =
         useSelector((s) => s.infos);
 
     return (
@@ -32,14 +31,6 @@ const Education = () => {
                 className="input"
                 value={schoolName}
                 onChange={(e) => dispatch(setSchoolName(e.target.value))}
-            />
-            <div className="label">School Location</div>
-            <input
-                type="text"
-                placeholder="e.g Lagos"
-                className="input"
-                value={schoolLocation}
-                onChange={(e) => dispatch(setSchoolLocation(e.target.value))}
             />
             <div className="label">Degree / Program</div>
             <input
