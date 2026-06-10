@@ -1,10 +1,12 @@
 import { CovertLetter, LeftArrow, RightArrow } from "../images"
 
+// import { useMediaQuery } from "react-responsive"
+
 const Description = ({ title, text }) => {
     return (
         <div>
-            <div className="text-[#000112] font-bold max-sm:text-base text-xl mb-4">{title}</div>
-            <p className="text-[#404653] max-sm:text-sm text-base leading-[30px]">{text}</p>
+            <div className={`text-[#000112] font-bold max-sm:text-base text-xl mb-4 `} >{title}</div>
+            <p className={`text-[#404653] max-sm:text-sm text-base leading-[30px] `}>{text}</p>
         </div>
     )
 }
@@ -14,12 +16,12 @@ const Features = () => {
         <div className="container">
             <div className="title text-center mb-8">Feature</div>
             <div className="flex justify-between items-center md:space-x-38 max-lg:flex-col">
-                <div className="flex flex-col justify-between">
+                <div className="flex flex-col justify-between left">
                     <Description
                         title="Templates"
                         text="A variety of pre-designed and customizable resume templates catering to different industries, roles, and design preferences."
                     />
-                    <div className="w-full max-w-[608px] h-auto my-6">
+                    <div className="w-full max-w-[608px] h-auto my-6 ">
                         <img src={CovertLetter} alt="Cover Letter" className="w-full" />
                     </div>
                     <Description
@@ -28,7 +30,7 @@ const Features = () => {
                     />
                 </div>
                 <div className="flex flex-col justify-between">
-                    <div className="my-10 w-full max-w-[372px] max-sm:max-w-[250px]">
+                    <div className="my-10 w-full max-w-[372px] max-sm:max-w-[250px] right-arr">
                         <img src={RightArrow} alt="Right Arrow" />
                     </div>
                     <Description

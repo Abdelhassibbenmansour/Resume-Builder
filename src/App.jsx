@@ -1,6 +1,9 @@
 import { LandingPage, Resume } from "./sections"
 import { Congratulations, Register, Login, ForgotPassword, OTP, CreatePassword } from "./components"
 import { Routes, Route } from "react-router-dom"
+import gsap from "gsap"
+import { SplitText,ScrollTrigger } from "gsap/all"
+gsap.registerPlugin(SplitText,ScrollTrigger);
 
 
 
