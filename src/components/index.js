@@ -7,7 +7,6 @@ export { default as Footer } from "./Footer";
 export { default as ResumeNavbar } from "./ResumeNavbar";
 export { default as Certification } from "./Certification";
 export { default as ContactInformation } from "./ContactInformation";
-export { default as Education } from "./Education";
 export { default as Experience } from "./Experience";
 export { default as PersonalInfo } from "./PersonalInfo";
 export { default as TechnicalSkills } from "./TechnicalSkills";

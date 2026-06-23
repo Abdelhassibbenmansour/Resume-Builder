@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 const Section = ({ title, children }) => (
     <div>
@@ -26,10 +27,10 @@ const ResumePreview = () => {
         fullName, emailAddress, profession, address, city, state,
         company, role, workAddress, startDate, endDate,
         skill,
-        schoolName, degree, studyField, graduationMonth, graduationYear,
+        schoolName, degree, studyField, graduationDate,
         phoneNumber, linkedinLink, twitterLink, githubLink, portfolioLink,
         certifications,
-    } = useSelector((s) => s.infos);
+    } = useContext(AppContext);
 
     return (
         <div className="w-[580px] h-full overflow-y-auto bg-white rounded-lg shadow-md p-6 text-[#404653] space-y-6">
@@ -59,8 +60,7 @@ const ResumePreview = () => {
                 <Field label="School Name" value={schoolName} />
                 <Field label="Degree" value={degree} />
                 <Field label="Field of Study" value={studyField} />
-                <Field label="Graduation Month" value={graduationMonth} />
-                <Field label="Graduation Year" value={graduationYear} />
+                <Field label="Graduation date" value={graduationDate} />
             </Section>
 
             <Section title="Contact Information">

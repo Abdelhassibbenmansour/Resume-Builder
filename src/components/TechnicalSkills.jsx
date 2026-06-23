@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setSkill } from "../redux/infos";
-import { setPage } from "../redux/links";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 const skills = [
     "JavaScript", "TypeScript", "React", "Vue", "Angular",
@@ -11,8 +10,7 @@ const skills = [
 ];
 
 const TechnicalSkills = () => {
-    const dispatch = useDispatch();
-    const { skill } = useSelector((s) => s.infos);
+    const { skill, setSkill, setPage } = useContext(AppContext);
 
     return (
         <form action="" className="py-2 w-full md:w-auto max-w-full">
@@ -22,15 +20,15 @@ const TechnicalSkills = () => {
                 id="skill"
                 className="input"
                 value={skill}
-                onChange={(e) => dispatch(setSkill(e.target.value))}
+                onChange={(e) => setSkill(e.target.value)}
             >
                 <option value="">Select a skill</option>
                 {skills.map((s) => (
                     <option key={s} value={s} className="option">{s}</option>
                 ))}
             </select>
-            <Link to="/resume/Education">
-                <button type="button" className="form-button" onClick={() => dispatch(setPage('Education'))}>Next</button>
+            <Link to="/resume/Certification">
+                <button type="button" className="form-button" onClick={() => setPage('Certification')}>Next</button>
             </Link>
         </form>
     );

@@ -1,17 +1,17 @@
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { ResumeNavbar } from "../components"
+import { Certification, ResumeNavbar } from "../components"
 import { GoPerson } from "react-icons/go";
 import { LuUserPen } from "react-icons/lu";
 import { LiaChartBarSolid } from "react-icons/lia";
 import { RiGraduationCapLine } from "react-icons/ri";
-import { PiUserList, PiCertificateThin } from "react-icons/pi";
+import { PiUserList } from "react-icons/pi";
 import { BiMenuAltLeft, BiMenu } from "react-icons/bi";
 import { ResumePreview } from "../components";
 import clsx from "clsx";
-import { Certification, ContactInformation, Education, Experience, PersonalInfo, TechnicalSkills } from "../components";
-import { useSelector, useDispatch } from "react-redux";
-import { setPage } from "../redux/links";
+import { ContactInformation, Experience, PersonalInfo, TechnicalSkills } from "../components";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 import { useLocation } from "react-router-dom";
 
 const resumeLinks = [
@@ -34,10 +34,10 @@ const resumeLinks = [
         element: <TechnicalSkills />,
     },
     {
-        title: "Education",
+        title: "Certification",
         icon: <RiGraduationCapLine />,
-        destination: "Education",
-        element: <Education />,
+        destination: "Certification",
+        element: <Certification />,
     },
     {
         title: "Contact Information",
@@ -45,29 +45,21 @@ const resumeLinks = [
         destination: "ContactInformation",
         element: <ContactInformation />,
     },
-    {
-        title: "Certification",
-        icon: <PiCertificateThin />,
-        destination: "Certification",
-        element: <Certification />,
-    },
 ];
 
 const Resume = () => {
     const [show, setShow] = useState(window.innerWidth >= 1024);
-    const dispatch = useDispatch();
-    const page = useSelector((s) => s.page.page);
+    const { page, setPage } = useContext(AppContext);
     const location = useLocation();
 
     useEffect(() => {
         switch (location.pathname) {
-            case "/Resume/PersonalInfo": dispatch(setPage('PersonalInfo')); break;
-            case "/resume/Experience": dispatch(setPage("Experience")); break;
-            case "/resume/TechnicalSkills": dispatch(setPage("TechnicalSkills")); break;
-            case "/resume/Education": dispatch(setPage("Education")); break;
-            case "/resume/ContactInformation": dispatch(setPage("ContactInformation")); break;
-            case "/resume/Certification": dispatch(setPage("Certification")); break;
-            default: dispatch(setPage('PersonalInfo')); break;
+            case "/Resume/PersonalInfo": setPage('PersonalInfo'); break;
+            case "/resume/Experience": setPage("Experience"); break;
+            case "/resume/TechnicalSkills": setPage("TechnicalSkills"); break;
+            case "/resume/Education": setPage("Certification"); break;
+            case "/resume/ContactInformation": setPage("ContactInformation"); break;
+            default: setPage('PersonalInfo'); break;
         }
     }, [])
     return (
@@ -78,11 +70,11 @@ const Resume = () => {
                     <div className={clsx("py-4 px-2 mb-3 flex text-3xl", show ? "justify-end pr-6 md:pr-2" : "justify-center md:justify-start md:pl-10")}>
                         {show ? <BiMenuAltLeft onClick={() => setShow((prev) => (!prev))} className="cursor-pointer" /> : <BiMenu onClick={() => setShow((prev) => (!prev))} className="cursor-pointer" />}
                     </div>
-                    <div className="flex flex-col space-y-4">
+                    <div className="flex flex-col ">
                         {resumeLinks.map((item, index) => {
                             return (
                                 <Link key={index} to={`/resume/${item.destination}`} onClick={() => {
-                                    dispatch(setPage(item.destination));
+                                    setPage(item.destination);
                                     if (window.innerWidth < 768) {
                                         setShow(false);
                                     }

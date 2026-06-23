@@ -1,19 +1,9 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {
-    setPhoneNumber,
-    setLinkedinLink,
-    setTwitterLink,
-    setAddress,
-    setGithubLink,
-    setPortfolioLink,
-} from "../redux/infos";
-import { setPage } from "../redux/links";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 const ContactInformation = () => {
-    const dispatch = useDispatch();
-    const { phoneNumber, linkedinLink, twitterLink, address, githubLink, portfolioLink } =
-        useSelector((s) => s.infos);
+    const { phoneNumber, setPhoneNumber, linkedinLink, setLinkedinLink, twitterLink, setTwitterLink, address, setAddress, githubLink, setGithubLink, portfolioLink, setPortfolioLink, setPage } = useContext(AppContext);
 
     return (
         <form action="" className="py-2 w-full md:w-auto max-w-full">
@@ -23,7 +13,7 @@ const ContactInformation = () => {
                 placeholder="05../06../07.."
                 className="input"
                 value={phoneNumber}
-                onChange={(e) => dispatch(setPhoneNumber(e.target.value))}
+                onChange={(e) => setPhoneNumber(e.target.value)}
             />
             <div className="label">LinkedIn Profile Link</div>
             <input
@@ -31,7 +21,7 @@ const ContactInformation = () => {
                 placeholder="e.g https://linkedin.com/in/johndoe"
                 className="input"
                 value={linkedinLink}
-                onChange={(e) => dispatch(setLinkedinLink(e.target.value))}
+                onChange={(e) => setLinkedinLink(e.target.value)}
             />
             <div className="label">Twitter Profile Link</div>
             <input
@@ -39,7 +29,7 @@ const ContactInformation = () => {
                 placeholder="e.g https://twitter.com/johndoe"
                 className="input"
                 value={twitterLink}
-                onChange={(e) => dispatch(setTwitterLink(e.target.value))}
+                onChange={(e) => setTwitterLink(e.target.value)}
             />
             <div className="label">Address</div>
             <input
@@ -47,7 +37,7 @@ const ContactInformation = () => {
                 placeholder="NG 1112 oreville"
                 className="input"
                 value={address}
-                onChange={(e) => dispatch(setAddress(e.target.value))}
+                onChange={(e) => setAddress(e.target.value)}
             />
             <div className="label">GitHub Profile Link</div>
             <input
@@ -55,7 +45,7 @@ const ContactInformation = () => {
                 placeholder="e.g https://github.com/johndoe"
                 className="input"
                 value={githubLink}
-                onChange={(e) => dispatch(setGithubLink(e.target.value))}
+                onChange={(e) => setGithubLink(e.target.value)}
             />
             <div className="label">Portfolio Link</div>
             <input
@@ -63,10 +53,10 @@ const ContactInformation = () => {
                 placeholder="e.g https://johndoe.dev"
                 className="input"
                 value={portfolioLink}
-                onChange={(e) => dispatch(setPortfolioLink(e.target.value))}
+                onChange={(e) => setPortfolioLink(e.target.value)}
             />
             <Link to="/resume/Certification">
-                <button type="button" className="form-button" onClick={() => dispatch(setPage('Certification'))}>Next</button>
+                <button type="button" className="form-button" onClick={() => setPage('Certification')}>Next</button>
             </Link>
         </form>
     );

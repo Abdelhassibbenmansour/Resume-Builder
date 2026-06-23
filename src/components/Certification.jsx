@@ -1,26 +1,50 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setCertifications } from "../redux/infos";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
-const Certification = () => {
-    const dispatch = useDispatch();
-    const { certifications } = useSelector((s) => s.infos);
+
+
+const Education = () => {
+    const { schoolName, setSchoolName, degree, setDegree, studyField, setStudyField, graduationDate, setGraduationDate, setPage } = useContext(AppContext);
 
     return (
         <form action="" className="py-2 w-full md:w-auto max-w-full">
-            <div className="label">Certifications</div>
+            <div className="label">School Name</div>
             <input
                 type="text"
-                placeholder="e.g Certificate of Engineering, AWS Certified..."
+                placeholder="e.g University of Lagos"
                 className="input"
-                value={certifications}
-                onChange={(e) => dispatch(setCertifications(e.target.value))}
+                value={schoolName}
+                onChange={(e) => setSchoolName(e.target.value)}
             />
-            <Link to="/Congratulations">
-                <button type="button" className="form-button">Submit</button>
+            <div className="label">Degree / Program</div>
+            <input
+                type="text"
+                placeholder="e.g Bachelor of Science"
+                className="input"
+                value={degree}
+                onChange={(e) => setDegree(e.target.value)}
+            />
+            <div className="label">Field of Study</div>
+            <input
+                type="text"
+                placeholder="e.g Computer Science"
+                className="input"
+                value={studyField}
+                onChange={(e) => setStudyField(e.target.value)}
+            />
+            <div className="label">Graduation Date</div>
+            <input
+                type="date"
+                className="input"
+                value={graduationDate}
+                onChange={(e) => setGraduationDate(e.target.value)}
+            />
+            <Link to="/resume/ContactInformation">
+                <button type="button" className="form-button" onClick={() => setPage('ContactInformation')}>Next</button>
             </Link>
         </form>
     );
 };
 
-export default Certification;
+export default Education;

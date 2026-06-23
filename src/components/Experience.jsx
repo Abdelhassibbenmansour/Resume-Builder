@@ -1,17 +1,9 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {
-    setCompany,
-    setRole,
-    setWorkAddress,
-    setStartDate,
-    setEndDate,
-} from "../redux/infos";
-import { setPage } from "../redux/links";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 const Experience = () => {
-    const dispatch = useDispatch();
-    const { company, role, workAddress, startDate, endDate } = useSelector((s) => s.infos);
+    const { company, setCompany, role, setRole, workAddress, setWorkAddress, startDate, setStartDate, endDate, setEndDate, setPage } = useContext(AppContext);
     return (
         <form action="" className="py-2 w-full md:w-auto max-w-full">
             <div className="label">Company</div>
@@ -20,7 +12,7 @@ const Experience = () => {
                 placeholder="E.g Google"
                 className="input"
                 value={company}
-                onChange={(e) => dispatch(setCompany(e.target.value))}
+                onChange={(e) => setCompany(e.target.value)}
             />
 
             <div className="label">Role</div>
@@ -29,7 +21,7 @@ const Experience = () => {
                 placeholder="e.g Software Engineer"
                 className="input"
                 value={role}
-                onChange={(e) => dispatch(setRole(e.target.value))}
+                onChange={(e) => setRole(e.target.value)}
             />
             <div className="label">Address</div>
             <input
@@ -37,7 +29,7 @@ const Experience = () => {
                 placeholder="NG 1112 oreville"
                 className="input"
                 value={workAddress}
-                onChange={(e) => dispatch(setWorkAddress(e.target.value))}
+                onChange={(e) => setWorkAddress(e.target.value)}
             />
             <div className="flex flex-col md:flex-row md:space-x-1">
                 <div className="w-full md:w-auto">
@@ -47,7 +39,7 @@ const Experience = () => {
                         placeholder="MM / YY"
                         className="min-input"
                         value={startDate}
-                        onChange={(e) => dispatch(setStartDate(e.target.value))}
+                        onChange={(e) => setStartDate(e.target.value)}
                     />
                 </div>
                 <div className="w-full md:w-auto">
@@ -57,7 +49,7 @@ const Experience = () => {
                         placeholder="MM / YY"
                         className="min-input"
                         value={endDate}
-                        onChange={(e) => dispatch(setEndDate(e.target.value))}
+                        onChange={(e) => setEndDate(e.target.value)}
                     />
                 </div>
             </div>
@@ -66,7 +58,7 @@ const Experience = () => {
                 <label htmlFor="work" className="text-[#404653] cursor-pointer">Currently work here</label>
             </div>
             <Link to="/resume/TechnicalSkills">
-                <button type="button" className="form-button" onClick={() => dispatch(setPage('TechnicalSkills'))}>Next</button>
+                <button type="button" className="form-button" onClick={() => setPage('TechnicalSkills')}>Next</button>
             </Link>
         </form>
     );
